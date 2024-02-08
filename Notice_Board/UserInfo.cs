@@ -12,7 +12,7 @@ namespace Notice_Board
 {
     public class UserInfo
     {
-        private string currentUserID = "";
+        public string currentUserID { get; set; }
         public string userId { get; set; }
         public string userPassword { get; set; }
         public string userName { get; set; }

@@ -32,7 +32,8 @@ namespace Notice_Board
             this.gridTextViewControl = new DevExpress.XtraGrid.GridControl();
             this.gridTextView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnWriteText = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDeleteText = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridTextViewControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTextView)).BeginInit();
             this.SuspendLayout();
@@ -60,19 +61,28 @@ namespace Notice_Board
             this.btnWriteText.TabIndex = 2;
             this.btnWriteText.Text = "글쓰기";
             // 
-            // simpleButton2
+            // btnDeleteText
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(847, 3);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.Text = "simpleButton2";
+            this.btnDeleteText.Location = new System.Drawing.Point(847, 3);
+            this.btnDeleteText.Name = "btnDeleteText";
+            this.btnDeleteText.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteText.TabIndex = 3;
+            this.btnDeleteText.Text = "삭제";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(685, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "새로고침";
             // 
             // TextViewUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.simpleButton2);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnDeleteText);
             this.Controls.Add(this.btnWriteText);
             this.Controls.Add(this.gridTextViewControl);
             this.Name = "TextViewUserControl";
@@ -88,6 +98,7 @@ namespace Notice_Board
         private DevExpress.XtraGrid.GridControl gridTextViewControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridTextView;
         private DevExpress.XtraEditors.SimpleButton btnWriteText;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btnDeleteText;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

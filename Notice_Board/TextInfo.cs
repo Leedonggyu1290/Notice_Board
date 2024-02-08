@@ -15,6 +15,9 @@ namespace Notice_Board
         public string tvUserId { get; set; }
         public string title { get; set; }
         public string text { get; set; }
+        public string pastTitle { get; set; }
+        public string pastText { get; set; }
+
 
         private string connString = ConfigurationManager.ConnectionStrings["NoticeBoardDB"].ConnectionString;
 
@@ -52,6 +55,50 @@ namespace Notice_Board
                 da.Fill(ds);
             }
             return ds;
+        }
+
+        public void InsertText(string userID, string title, string text)
+        {
+            string sql = $@"INSERT INTO dbo.Text_Info (USER_ID, TITLE, TEXT)
+                                VALUES ('{userID}', '{title}', '{text}')";
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateText(string userID, string title, string text)
+        {
+            string sql = $@"UPDATE dbo.Text_Info
+                                SET TITLE = '{title}'
+                                , TEXT = '{text}'
+                                WHERE USER_ID = '{userID}' AND TITLE = '{pastTitle}' AND TEXT = '{pastText}'";
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+
+            pastTitle = title;
+            pastText = text;
+        }
+
+        public void DeleteText(string userID, string title)
+        {
+            string sql = $@"DELETE dbo.Text_Info
+                                WHERE USER_ID = '{userID}' AND TITLE = '{title}'";
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 

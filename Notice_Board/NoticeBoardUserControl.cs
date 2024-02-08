@@ -57,14 +57,5 @@ namespace Notice_Board
                 this.Dispose();
             }
         }
-
-        /*private void windowsUIButtonPanel_ButtonChecked(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
-        {
-            foreach (WindowsUIButton btn in btnNoticeBoardPanel.Buttons)
-            {
-                if (btn != e.Button)
-                    btn.Checked = false;
-            }
-        }*/
     }
 }

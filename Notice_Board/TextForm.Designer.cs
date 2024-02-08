@@ -33,6 +33,7 @@ namespace Notice_Board
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.tbTitle = new DevExpress.XtraEditors.TextEdit();
             this.tbContents = new DevExpress.XtraEditors.TextEdit();
+            this.btnWriteText = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tbTitle.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbContents.Properties)).BeginInit();
             this.SuspendLayout();
@@ -41,7 +42,7 @@ namespace Notice_Board
             // 
             this.btnCorrection.Location = new System.Drawing.Point(12, 614);
             this.btnCorrection.Name = "btnCorrection";
-            this.btnCorrection.Size = new System.Drawing.Size(75, 23);
+            this.btnCorrection.Size = new System.Drawing.Size(80, 23);
             this.btnCorrection.TabIndex = 0;
             this.btnCorrection.Text = "수정";
             this.btnCorrection.Visible = false;
@@ -50,7 +51,7 @@ namespace Notice_Board
             // 
             this.btnSave.Location = new System.Drawing.Point(397, 614);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(80, 23);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "저장";
             this.btnSave.Visible = false;
@@ -77,17 +78,27 @@ namespace Notice_Board
             this.tbContents.Size = new System.Drawing.Size(460, 370);
             this.tbContents.TabIndex = 1;
             // 
+            // btnWriteText
+            // 
+            this.btnWriteText.Location = new System.Drawing.Point(210, 614);
+            this.btnWriteText.Name = "btnWriteText";
+            this.btnWriteText.Size = new System.Drawing.Size(80, 23);
+            this.btnWriteText.TabIndex = 2;
+            this.btnWriteText.Text = "작성";
+            this.btnWriteText.Visible = false;
+            // 
             // TextForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.btnWriteText);
             this.Controls.Add(this.tbContents);
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCorrection);
             this.Name = "TextForm";
-            this.Text = "TextForm";
+            this.Text = "게시글";
             ((System.ComponentModel.ISupportInitialize)(this.tbTitle.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbContents.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -100,5 +111,6 @@ namespace Notice_Board
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.TextEdit tbTitle;
         private DevExpress.XtraEditors.TextEdit tbContents;
+        private DevExpress.XtraEditors.SimpleButton btnWriteText;
     }
 }
