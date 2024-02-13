@@ -218,7 +218,7 @@ namespace Notice_Board
         }
 
         public void UpdateDataWithIDMaster(string secondID, string password, string name, DateTime birth, string gender,
-            string email, string phoneNumber, string firstID)
+            string email, string phoneNumber, string master, string firstID)
         {
             string sql = $@"UPDATE dbo.User_Info
                                 SET USER_ID = '{secondID}'
@@ -228,6 +228,7 @@ namespace Notice_Board
                                 , GENDER = '{gender}'
                                 , EMAIL = '{email}'
                                 , PHONE = '{phoneNumber}'
+                                , ISMASTER = '{master}'
                                 WHERE USER_ID = '{firstID}'";
 
             using (SqlConnection conn = new SqlConnection(connString))
@@ -239,7 +240,7 @@ namespace Notice_Board
         }
 
         public void UpdateDataMaster(string password, string name, DateTime birth, string gender,
-            string email, string phoneNumber, string id)
+            string email, string phoneNumber, string master, string id)
         {
             string sql = $@"UPDATE dbo.User_Info
                                 SET USER_PWD = '{password}'
@@ -247,6 +248,7 @@ namespace Notice_Board
                                 , BIRTHDAY = CONVERT(char(10), '{birth}', 120)
                                 , GENDER = '{gender}'
                                 , EMAIL = '{email}', PHONE = '{phoneNumber}'
+                                , ISMASTER = '{master}'
                                 WHERE USER_ID = '{id}'";
 
             using (SqlConnection conn = new SqlConnection(connString))

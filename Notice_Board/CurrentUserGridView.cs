@@ -109,13 +109,15 @@ namespace Notice_Board
                             userInfo.UpdateDataWithIDMaster(userDataTable.Rows[j][0].ToString(),
                             userDataTable.Rows[j][1].ToString(), userDataTable.Rows[j][2].ToString(),
                             (DateTime)userDataTable.Rows[j][3], userDataTable.Rows[j][4].ToString(),
-                            userDataTable.Rows[j][5].ToString(), userDataTable.Rows[j][6].ToString(), userIDArray[j]);
+                            userDataTable.Rows[j][5].ToString(), userDataTable.Rows[j][6].ToString(),
+                            userDataTable.Rows[j][7].ToString(), userIDArray[j]);
                         }
                         else
                         {
                             userInfo.UpdateDataMaster(userDataTable.Rows[j][1].ToString(), userDataTable.Rows[j][2].ToString(),
                             (DateTime)userDataTable.Rows[j][3], userDataTable.Rows[j][4].ToString(),
-                            userDataTable.Rows[j][5].ToString(), userDataTable.Rows[j][6].ToString(), userIDArray[j]);
+                            userDataTable.Rows[j][5].ToString(), userDataTable.Rows[j][6].ToString(),
+                            userDataTable.Rows[j][7].ToString(), userIDArray[j]);
                         }
                     }
                 }
