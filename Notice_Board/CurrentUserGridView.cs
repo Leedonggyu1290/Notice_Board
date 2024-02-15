@@ -29,7 +29,7 @@ namespace Notice_Board
             this.gridUserInfo.OptionsSelection.MultiSelect = true;
             this.gridUserInfo.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
 
-            if (userInfo.currentMaster != 0)
+            if (userInfo.currentMaster != 1)
             {
                 DataSet ds = userInfo.GetCurrentUserInfo();
                 gridUserInfoControl.DataSource = ds.Tables[0];
@@ -47,7 +47,7 @@ namespace Notice_Board
                 userIDArray[i] = ((DataTable)gridUserInfoControl.DataSource).Rows[i][0].ToString();
             }
 
-            if (userInfo.currentMaster != 0)
+            if (userInfo.currentMaster != 1)
             {
                 btnAddUserData.Visible = false;
                 btnDeleteUserData.Visible = false;
@@ -58,7 +58,7 @@ namespace Notice_Board
         {
             DataSet ds;
 
-            if (userInfo.currentMaster != 0)
+            if (userInfo.currentMaster != 1)
             {
                 ds = userInfo.GetCurrentUserInfo();
             }
@@ -95,7 +95,7 @@ namespace Notice_Board
             {
                 for (int j = 0; j < gridUserInfo.RowCount; j++)
                 {
-                    if (userInfo.currentMaster != 0)
+                    if (userInfo.currentMaster != 1)
                     {
                         userInfo.UpdateData(userDataTable.Rows[j][0].ToString(), userDataTable.Rows[j][1].ToString(),
                         userDataTable.Rows[j][2].ToString(), (DateTime)userDataTable.Rows[j][3],
@@ -110,14 +110,14 @@ namespace Notice_Board
                             userDataTable.Rows[j][1].ToString(), userDataTable.Rows[j][2].ToString(),
                             (DateTime)userDataTable.Rows[j][3], userDataTable.Rows[j][4].ToString(),
                             userDataTable.Rows[j][5].ToString(), userDataTable.Rows[j][6].ToString(),
-                            userDataTable.Rows[j][7].ToString(), userIDArray[j]);
+                            (Convert.ToInt32(userDataTable.Rows[j][7])).ToString(), userIDArray[j]);
                         }
                         else
                         {
                             userInfo.UpdateDataMaster(userDataTable.Rows[j][1].ToString(), userDataTable.Rows[j][2].ToString(),
                             (DateTime)userDataTable.Rows[j][3], userDataTable.Rows[j][4].ToString(),
                             userDataTable.Rows[j][5].ToString(), userDataTable.Rows[j][6].ToString(),
-                            userDataTable.Rows[j][7].ToString(), userIDArray[j]);
+                            (Convert.ToInt32(userDataTable.Rows[j][7])).ToString(), userIDArray[j]);
                         }
                     }
                 }

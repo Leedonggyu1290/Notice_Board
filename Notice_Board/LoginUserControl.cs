@@ -59,7 +59,6 @@ namespace Notice_Board
                 {
                     MessageBox.Show("성공적으로 로그인 되셨습니다.");
                     user.CheckCurrentMaster(tbInputID.Text);
-                    Console.WriteLine(user.currentMaster);
                     AfterDisposeLogin(this, new EventArgs());
                     this.Dispose();
                 }

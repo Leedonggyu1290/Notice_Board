@@ -60,7 +60,7 @@ namespace Notice_Board
             btnWriteText.Visible = true;
             tbTitle.ReadOnly = false;
             tbContents.ReadOnly = false;
-
+            
             btnWriteText.Click += BtnWriteText_Click;
         }
 

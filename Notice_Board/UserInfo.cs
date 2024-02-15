@@ -13,13 +13,6 @@ namespace Notice_Board
     public class UserInfo
     {
         public string currentUserID { get; set; }
-        public string userId { get; set; }
-        public string userPassword { get; set; }
-        public string userName { get; set; }
-        public string userBirth { get; set; }
-        public string userGender { get; set; }
-        public string userEmail { get; set; }
-        public string userPhoneNumber { get; set; }
 
         private int checkMaster = 1;
 
@@ -29,11 +22,11 @@ namespace Notice_Board
 
         public DataSet GetCurrentUserInfo()
         {
-            SqlParameter paramID = new SqlParameter("@currentUserID", currentUserID);
             string sql = $@"SELECT USER_ID AS [아이디], USER_PWD AS [비밀번호], USER_NAME AS [이름],
                                    BIRTHDAY AS [생년월일], GENDER AS [성별], EMAIL AS [이메일],
                                    PHONE AS [휴대폰 번호]
-                                FROM dbo.User_Info WHERE USER_ID = '{this.currentUserID}'";
+                                FROM dbo.User_Info
+                                WHERE USER_ID = '{currentUserID}'";
             DataSet ds = new DataSet();
 
             using (SqlConnection conn = new SqlConnection(connString))
@@ -50,7 +43,15 @@ namespace Notice_Board
 
         public DataSet GetAllUserInfo()
         {
-            string sql = "SELECT * FROM dbo.User_Info";
+            string sql = @"SELECT USER_ID
+                                  ,USER_PWD
+                                  ,USER_NAME
+                                  ,BIRTHDAY
+                                  ,GENDER
+                                  ,EMAIL
+                                  ,PHONE
+                                  ,CONVERT(BIT, [ISMASTER]) AS ISMASTER
+                                  FROM dbo.User_Info";
             DataSet ds = new DataSet();
 
             using (SqlConnection conn = new SqlConnection(connString))
